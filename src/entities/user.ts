@@ -7,7 +7,7 @@ export class User {
     unsigned: true,
     comment: 'PK',
   })
-  readonly userId: number;
+  readonly id: number;
 
   @CreateDateColumn()
   createdAt: Date;
