@@ -1,13 +1,38 @@
-import { CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinTable,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+
+import { ClickCount } from './click-count';
+
+export class UserRelations {
+  @OneToOne(() => ClickCount, (e) => e.user, {
+    cascade: ['insert', 'update', 'remove'],
+  })
+  @JoinTable()
+  clickCount: ClickCount;
+}
 
 @Entity()
-export class User {
+export class User extends UserRelations {
   @PrimaryGeneratedColumn({
     type: 'bigint',
     unsigned: true,
     comment: 'PK',
   })
   readonly id: number;
+
+  @Column({
+    type: 'varchar',
+    length: 50,
+    comment: '이름',
+  })
+  name: string;
 
   @CreateDateColumn()
   createdAt: Date;
