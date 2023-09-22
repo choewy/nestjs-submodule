@@ -5,6 +5,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Type } from '@nestjs/common';
 
 import { TypeOrmTypeCastField } from './interfaces';
+import { DataSourceName } from './enums';
 
 export class DBMasterConfig {
   private readonly TYPE: any;
@@ -34,6 +35,7 @@ export class DBMasterConfig {
   public getOptions(entities: Type<any>[]): TypeOrmModuleOptions | DataSourceOptions {
     return {
       entities,
+      name: DataSourceName.MASTER,
       type: this.TYPE,
       host: this.HOST,
       port: Number(this.PORT),
