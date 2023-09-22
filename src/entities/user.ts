@@ -19,7 +19,7 @@ export class UserRelations {
   clickCount: ClickCount;
 }
 
-@Entity({ name: 'User' })
+@Entity()
 export class User extends UserRelations {
   @PrimaryGeneratedColumn({
     type: 'bigint',
