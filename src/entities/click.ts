@@ -2,16 +2,16 @@ import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn, UpdateDateColumn }
 
 import { User } from './user';
 
-export class ClickCountRelations {
-  @OneToOne(() => User, (e) => e.clickCount, {
+export class ClickRelations {
+  @OneToOne(() => User, (e) => e.click, {
     onDelete: 'CASCADE',
   })
   @JoinColumn()
   user: User;
 }
 
-@Entity({ name: 'click_count' })
-export class ClickCount extends ClickCountRelations {
+@Entity({ name: 'click' })
+export class Click extends ClickRelations {
   @PrimaryColumn({
     type: 'bigint',
     unsigned: true,

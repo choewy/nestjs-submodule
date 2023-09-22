@@ -1,2 +1,2 @@
 export * from './user';
-export * from './click-count';
+export * from './click';
