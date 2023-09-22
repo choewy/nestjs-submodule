@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  Index,
   JoinTable,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -27,6 +28,7 @@ export class User extends UserRelations {
   })
   readonly id: number;
 
+  @Index({ fulltext: true })
   @Column({
     type: 'varchar',
     length: 50,
