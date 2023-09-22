@@ -10,7 +10,7 @@ export class ClickCountRelations {
   user: User;
 }
 
-@Entity()
+@Entity({ name: 'click_count' })
 export class ClickCount extends ClickCountRelations {
   @PrimaryColumn({
     type: 'bigint',
