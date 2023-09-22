@@ -6,7 +6,7 @@ import { Type } from '@nestjs/common';
 
 import { TypeOrmTypeCastField } from './interfaces';
 
-export class DBConfig {
+export class DBSlaveConfig {
   private readonly TYPE: any;
   private readonly HOST: string;
   private readonly PORT: string;
@@ -41,8 +41,6 @@ export class DBConfig {
       password: this.PASSWORD,
       database: this.DATABASE,
       timezone: this.TIMEZONE,
-      synchronize: this.SYNCHRONIZE === 'true',
-      dropSchema: this.DROP_SCHEMA === 'true',
       logging: ['true', 'false'].includes(this.LOGGING)
         ? this.LOGGING === 'true'
         : (this.LOGGING.split('|') as LogLevel[]),

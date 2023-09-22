@@ -1,3 +1,4 @@
 export * from './interfaces';
 
-export * from './config';
+export * from './master.config';
+export * from './slave.config';
