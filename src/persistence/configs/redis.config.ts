@@ -15,13 +15,14 @@ export class RedisConfig {
     this.DB = process.env[[prefix, 'DB'].join('_')];
   }
 
-  public getOptions(): RedisOptions {
+  public getOptions(lazyConnect = true): RedisOptions {
     return {
       host: this.HOST,
       port: Number(this.PORT),
       username: this.USERNAME,
       password: this.PASSWORD,
       db: this.DB ? Number(this.DB) : undefined,
+      lazyConnect,
     };
   }
 }
