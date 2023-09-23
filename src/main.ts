@@ -1,6 +1,6 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
 
-import { DBMasterConfig } from '@submodule/persistence';
+import { DBMasterConfig } from '@submodule/persistence/configs';
 import { User, Click } from '@submodule/entities';
 
 const main = async () => {
