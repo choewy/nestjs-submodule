@@ -7,12 +7,12 @@ export class JwtConfig {
   private readonly AUDIENCE: string;
   private readonly EXPIRES_IN: string;
 
-  constructor(private readonly prefix: string) {
-    this.SECRET = process.env[[this.prefix, 'SECRET'].join('_')];
-    this.SUBJECT = process.env[[this.prefix, 'SUBJECT'].join('_')];
-    this.ISSUER = process.env[[this.prefix, 'ISSUER'].join('_')];
-    this.AUDIENCE = process.env[[this.prefix, 'AUDIENCE'].join('_')];
-    this.EXPIRES_IN = process.env[[this.prefix, 'EXPIRES_IN'].join('_')];
+  constructor(prefix: string) {
+    this.SECRET = process.env[[prefix, 'SECRET'].join('_')];
+    this.SUBJECT = process.env[[prefix, 'SUBJECT'].join('_')];
+    this.ISSUER = process.env[[prefix, 'ISSUER'].join('_')];
+    this.AUDIENCE = process.env[[prefix, 'AUDIENCE'].join('_')];
+    this.EXPIRES_IN = process.env[[prefix, 'EXPIRES_IN'].join('_')];
   }
 
   public getSecretOption(): string {

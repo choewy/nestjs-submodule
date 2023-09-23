@@ -7,12 +7,12 @@ export class RedisConfig {
   private readonly PASSWORD: string | undefined;
   private readonly DB: string | undefined;
 
-  constructor(private readonly prefix: string) {
-    this.HOST = process.env[[this.prefix, 'HOST'].join('_')];
-    this.PORT = process.env[[this.prefix, 'PORT'].join('_')];
-    this.USERNAME = process.env[[this.prefix, 'USERNAME'].join('_')];
-    this.PASSWORD = process.env[[this.prefix, 'PASSWORD'].join('_')];
-    this.DB = process.env[[this.prefix, 'DB'].join('_')];
+  constructor(prefix: string) {
+    this.HOST = process.env[[prefix, 'HOST'].join('_')];
+    this.PORT = process.env[[prefix, 'PORT'].join('_')];
+    this.USERNAME = process.env[[prefix, 'USERNAME'].join('_')];
+    this.PASSWORD = process.env[[prefix, 'PASSWORD'].join('_')];
+    this.DB = process.env[[prefix, 'DB'].join('_')];
   }
 
   public getOptions(): RedisOptions {

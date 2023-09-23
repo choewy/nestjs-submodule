@@ -19,17 +19,17 @@ export class DBMasterConfig {
   private readonly LOGGING: string;
   private readonly DROP_SCHEMA: string;
 
-  constructor(private readonly prefix: string) {
-    this.TYPE = process.env[[this.prefix, 'TYPE'].join('_')];
-    this.HOST = process.env[[this.prefix, 'HOST'].join('_')];
-    this.PORT = process.env[[this.prefix, 'PORT'].join('_')];
-    this.USERNAME = process.env[[this.prefix, 'USERNAME'].join('_')];
-    this.PASSWORD = process.env[[this.prefix, 'PASSWORD'].join('_')];
-    this.DATABASE = process.env[[this.prefix, 'DATABASE'].join('_')];
-    this.SYNCHRONIZE = process.env[[this.prefix, 'SYNCHRONIZE'].join('_')];
-    this.TIMEZONE = process.env[[this.prefix, 'TIMEZONE'].join('_')];
-    this.LOGGING = process.env[[this.prefix, 'LOGGING'].join('_')];
-    this.DROP_SCHEMA = process.env[[this.prefix, 'DROP_SCHEMA'].join('_')];
+  constructor(prefix: string) {
+    this.TYPE = process.env[[prefix, 'TYPE'].join('_')];
+    this.HOST = process.env[[prefix, 'HOST'].join('_')];
+    this.PORT = process.env[[prefix, 'PORT'].join('_')];
+    this.USERNAME = process.env[[prefix, 'USERNAME'].join('_')];
+    this.PASSWORD = process.env[[prefix, 'PASSWORD'].join('_')];
+    this.DATABASE = process.env[[prefix, 'DATABASE'].join('_')];
+    this.SYNCHRONIZE = process.env[[prefix, 'SYNCHRONIZE'].join('_')];
+    this.TIMEZONE = process.env[[prefix, 'TIMEZONE'].join('_')];
+    this.LOGGING = process.env[[prefix, 'LOGGING'].join('_')];
+    this.DROP_SCHEMA = process.env[[prefix, 'DROP_SCHEMA'].join('_')];
   }
 
   public getOptions(entities: Type<any>[]): TypeOrmModuleOptions | DataSourceOptions {

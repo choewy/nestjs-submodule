@@ -17,15 +17,15 @@ export class DBSlaveConfig {
   private readonly TIMEZONE: string;
   private readonly LOGGING: string;
 
-  constructor(private readonly prefix: string) {
-    this.TYPE = process.env[[this.prefix, 'TYPE'].join('_')];
-    this.HOST = process.env[[this.prefix, 'HOST'].join('_')];
-    this.PORT = process.env[[this.prefix, 'PORT'].join('_')];
-    this.USERNAME = process.env[[this.prefix, 'USERNAME'].join('_')];
-    this.PASSWORD = process.env[[this.prefix, 'PASSWORD'].join('_')];
-    this.DATABASE = process.env[[this.prefix, 'DATABASE'].join('_')];
-    this.TIMEZONE = process.env[[this.prefix, 'TIMEZONE'].join('_')];
-    this.LOGGING = process.env[[this.prefix, 'LOGGING'].join('_')];
+  constructor(prefix: string) {
+    this.TYPE = process.env[[prefix, 'TYPE'].join('_')];
+    this.HOST = process.env[[prefix, 'HOST'].join('_')];
+    this.PORT = process.env[[prefix, 'PORT'].join('_')];
+    this.USERNAME = process.env[[prefix, 'USERNAME'].join('_')];
+    this.PASSWORD = process.env[[prefix, 'PASSWORD'].join('_')];
+    this.DATABASE = process.env[[prefix, 'DATABASE'].join('_')];
+    this.TIMEZONE = process.env[[prefix, 'TIMEZONE'].join('_')];
+    this.LOGGING = process.env[[prefix, 'LOGGING'].join('_')];
   }
 
   public getOptions(entities: Type<any>[]): TypeOrmModuleOptions | DataSourceOptions {
